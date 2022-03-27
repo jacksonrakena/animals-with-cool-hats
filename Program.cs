@@ -1,8 +1,8 @@
 using Awch.Site;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
@@ -10,7 +10,11 @@ builder.Services.AddDbContext<AwchDatabaseContext>(options =>
 {
     options.UseNpgsql(builder.Configuration["ConnectionStrings:Database"]);
 });
-builder.Services.AddCoreAdmin();
+builder.Services
+    .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<AwchDatabaseContext>();
+builder.Services.AddCoreAdmin("Administrator");
 
 var app = builder.Build();
 
@@ -26,7 +30,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
