@@ -10,6 +10,7 @@ builder.Services.AddDbContext<AwchDatabaseContext>(options =>
 {
     options.UseNpgsql(builder.Configuration["ConnectionStrings:Database"]);
 });
+builder.Services.AddCoreAdmin();
 
 var app = builder.Build();
 
@@ -29,8 +30,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapDefaultControllerRoute();
 
 app.Run();
