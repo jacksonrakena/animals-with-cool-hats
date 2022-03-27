@@ -9,7 +9,7 @@ public class ImageRecord
     
     public string Url { get; set; }
     
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.Now.ToUniversalTime();
     
     public string Author { get; set; }
 }
