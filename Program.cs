@@ -5,13 +5,18 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+});
 builder.Services.AddDbContext<AwchDatabaseContext>(options =>
 {
     options.UseNpgsql(builder.Configuration["ConnectionStrings:Database"]);
 });
 builder.Services
-    .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddIdentity<IdentityUser, IdentityRole>(options =>
+    {
+        options.SignIn.RequireConfirmedAccount = true;
+    })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AwchDatabaseContext>();
 builder.Services.AddCoreAdmin("Administrator");

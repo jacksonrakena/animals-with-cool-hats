@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Awch.Site.Views;
+namespace Awch.Site.Pages;
 
 public class Index : PageModel
 {

@@ -65,17 +65,21 @@
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\RegisterConfirmation.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\_ViewStart.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="CoreAdmin" Version="2.5.0" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3" />
-      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.3" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.3" />
     </ItemGroup>
