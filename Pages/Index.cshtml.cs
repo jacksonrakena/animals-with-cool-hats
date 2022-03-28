@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,8 +6,7 @@ namespace Awch.Site.Pages;
 
 public class Index : PageModel
 {
-    public string ImageUrl { get; set; }
-    public string Uploader { get; set; }
+    public ImageRecord Record { get; set; }
 
     private readonly AwchDatabaseContext _context;
     
@@ -15,10 +15,14 @@ public class Index : PageModel
         _context = context;
     }
 
-    public async Task OnGet()
+    public async Task<IActionResult> OnGet()
     {
-        var record = await _context.ImageRecords.OrderBy(r => Guid.NewGuid()).FirstOrDefaultAsync();
-        ImageUrl = record?.Url;
-        Uploader = record?.Author;
+        if (RouteData.Values.TryGetValue("id", out var value) && value != null && int.TryParse(value.ToString(), out var valueInt))
+        {
+            Record = await _context.ImageRecords.FindAsync(valueInt);
+        }
+        Record ??= await _context.ImageRecords.OrderBy(r => Guid.NewGuid()).FirstOrDefaultAsync();
+        
+        return Page();
     }
 }
