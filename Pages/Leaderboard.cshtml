@@ -1,0 +1,21 @@
+@page
+@model Awch.Site.Pages.Leaderboard
+
+@{
+    Layout = "Shared/_PublicLayout";
+}
+
+<h3>animal with cool hats top submitters:</h3>
+
+<ol>
+    @foreach (var (submitter, count) in Model.TopSubmitters)
+    {
+        <li>
+            @submitter, with @count submissions
+        </li>
+    }
+</ol>
+
+<small>
+    get on the leaderboard by sending your submissions to <a href="mailto:submissions@animalswithcoolhats.com">submissions@animalswithcoolhats.com</a>
+</small>

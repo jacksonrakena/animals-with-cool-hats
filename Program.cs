@@ -14,6 +14,7 @@ builder.Services.AddDbContext<AwchDatabaseContext>(options =>
 {
     options.UseNpgsql(builder.Configuration["ConnectionStrings:Database"]);
 });
+builder.Services.AddSingleton<StatisticsService>();
 builder.Services
     .AddIdentity<IdentityUser, IdentityRole>(options =>
     {

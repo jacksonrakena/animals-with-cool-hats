@@ -74,6 +74,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Abyssal.Common" Version="2.0.4" />
       <PackageReference Include="CoreAdmin" Version="2.5.1" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
