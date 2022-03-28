@@ -12,6 +12,8 @@ public class StatisticsService
     {
         _services = services;
     }
+
+    public DateTimeOffset GetLastUpdated() => _topSubmitters.LastUpdated;
     
     private readonly Cachable<List<TopSubmitter>> _topSubmitters =
         new(null, DateTimeOffset.Now, TimeSpan.FromHours(1));

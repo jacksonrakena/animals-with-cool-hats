@@ -17,6 +17,10 @@
     <ul>
         <li>
             <b>Images in database: </b> @(await Model.Context.ImageRecords.CountAsync())
+            
+        </li>
+        <li>
+            <b>Last leaderboard update:</b> @Model.Stats.GetLastUpdated()
         </li>
     </ul>
 </div>
