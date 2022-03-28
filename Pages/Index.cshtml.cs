@@ -6,6 +6,7 @@ namespace Awch.Site.Pages;
 public class Index : PageModel
 {
     public string ImageUrl { get; set; }
+    public string Uploader { get; set; }
 
     private readonly AwchDatabaseContext _context;
     
@@ -18,5 +19,6 @@ public class Index : PageModel
     {
         var record = await _context.ImageRecords.OrderBy(r => Guid.NewGuid()).FirstOrDefaultAsync();
         ImageUrl = record?.Url;
+        Uploader = record?.Author;
     }
 }
