@@ -1,4 +1,5 @@
 @page
+@using Microsoft.EntityFrameworkCore
 @model Awch.Site.Pages.Admin
 
 @{
@@ -11,4 +12,11 @@
     <a href="https://new.contabo.com/storage/object-storage/buckets/awch-data/images%2F?region=European%20Union%20(Germany)%202&s3TenantId=fca3d8a9a6c74b6db1893a288dbe0a7e">
         Click here to go to the image storage bucket.
     </a>
+</div>
+<div>
+    <ul>
+        <li>
+            <b>Images in database: </b> @(await Model.Context.ImageRecords.CountAsync())
+        </li>
+    </ul>
 </div>
